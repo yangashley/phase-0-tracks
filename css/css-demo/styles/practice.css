@@ -13,3 +13,12 @@ section#contact-info p {
 .list-item {
 	font-size: .8em;
 }
+
+h1::first-letter {
+    color: #ff0000;
+    font-size: xx-large;
+}
+
+section > ul { 
+    background-color: yellow;
+}
