@@ -1,0 +1,46 @@
+h1 {
+  background-color: pink;
+  }
+
+p {
+  background-color: #60b6e5;
+  }
+
+article {
+  background-color: #a4dcf9;
+}
+
+footer {
+  display: block;
+  background-color: pink;
+  clear: both;
+  }
+  
+ header {
+  display: block;
+  width: 100%;
+  position: ;
+  /* clear: both; */
+  }
+  
+  body {
+    width: 100%;
+    display: table;
+    font-family: Arial;
+  }
+
+  .column-1 {
+    width: 48%;
+    display: table-cell;
+    vertical-align: top;
+    float: left;
+    margin-bottom: 20px;
+  }
+  
+  .column-2 {
+    width: 48%;
+    display: table-cell;
+    vertical-align: top;
+    float: left;
+    margin-left: 2%;
+  }
