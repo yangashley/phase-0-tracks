@@ -1,0 +1,60 @@
+This is an algorithm for a robot using an elevator. It assumes that all elevators have the same layout with the buttons on the right side of the car and the layout of the buttons in each car are the same.
+
+- Press button to call elevator
+    - If going up building, press button on top
+    - If going down building, press button on bottom
+- Wait for doors to open
+- When doors open see if others are exiting elevator
+    - If no one is exiting, walk forward into elevator until 2 feet from back wall
+    - If others are exiting, wait 3 seconds, then walk forward into elevator until 2 feet from back wall
+    - If doors shut before you enter, start process over by pressing button to call the elevator
+        - When doors open, wait 2 seconds and then walk forward into elevator until 2 feet from back wall
+- Turn 90 degrees to the left and walk forward until 1 foot away from adjacent wall
+    - Repeat 1 time
+- Access user input to determine which floor to go to
+- Access grid map of buttons
+- Match user input of floor level to the right button with the grid map of the buttons
+- Press appropriate button to go to that floor
+- Exit when the pressed button lights up and doors open
+    - Turn left walk forward 1 foot.
+- Turn right and walk straight to exit elevator
+- Proceed to destination
+
+This is an algorithm for taking out the trash.
+
+- Walk to trashcan in kitchen
+- Trashcan protocol
+    - If there is no lid on trashcan, remove trash bag from can
+    - If there is a lid, lift lid.
+    - If trashcan has pedal to lift lid: press and hold pedal while removing trash bag from can
+        - Carry the bag by the handles with one arm
+        - Release pedal to close lid
+    - If trashcan does not have pedal to lift lid: lift lid with one arm, use other arm to remove trash bag and carry by handles
+        - Replace lid
+- While carrying trash bag by handles:
+    - Walk to front door
+    - Open door
+    - Walk to dumpster
+    - Lift dumpster lid open with the arm that is not carrying the trash bag
+    - Put trash bag in dumpster
+    - Close dumpster lid
+- Walk to the house
+- Open the door
+- Locate clean trash bags
+    - Open cupboard
+    - Open container of trash bags
+    - Reach into container
+    - Grab one bag
+    - Retract arm and carry hold trash bag with hand
+    - Close cupboard doors with empty hand
+- Walk to trashcan in kitchen with trash bag
+- Unfold trash bag
+- If there is no lid on trashcan, stretch opening of trash bag around trashcan
+    - If there is a lid, lift lid.
+        - If trashcan has pedal to lift lid: press and hold pedal while stretching clean trash bag around trashcan
+        - Release pedal
+    - If trashcan does not have pedal to lift lid
+        - lift lid with arm that is not holding trash bag and set on floor.
+            - stretch opening of trash bag around trashcan
+            - Pick up lid from floor
+            - Put lid directly on top of trashcan
