@@ -16,3 +16,40 @@ allergies = gets.chomp
 puts "Sounds good. One final question: Would you like to enroll in the company’s health insurance? (yes/no)"
 health_insur = gets.chomp
 puts "Wonderful! Thanks for the information."
+
+def employee_processor
+not_vamp = "Probably not a vampire."
+prob_vamp = "Probably a vampire."
+certainly_vamp = "Almost certainly a vampire." 
+def_vamp = "Definitely a vampire"
+result = "Results inconclusive."
+
+puts "What is the employee's name?"
+employee_name = gets.chomp
+puts "Did #{employee_name} provide their actual age? (yes/no)"
+age_right = gets.chomp
+puts "Did #{employee_name} want garlic bread? (yes/no)"
+garlic_bread = gets.chomp
+puts "Did #{employee_name} enroll in the company health insurance? (yes/no)"
+want_insur = gets.chomp
+puts "Did #{employee_name} answer all the questions correctly like a werewolf would? (yes/no)"
+correct_answers = gets.chomp
+
+if age_right == "yes" && (garlic_bread == "yes" || want_insur == "yes")
+	 result = not_vamp
+end
+
+if age_right == "no" && (garlic_bread == "no" || want_insur == "no")
+	 result = prob_vamp
+end
+
+if age_right== "no" && (garlic_bread == "no" && want_insur == "no")
+	 result = certainly_vamp 
+end
+
+if correct_answers == "yes" && (employee_name == "Drake Cula" || employee_name == "Tu Fang")
+	 result = def_vamp 
+end
+puts "Results for #{employee_name}: #{result}"
+end
+puts employee_processor
