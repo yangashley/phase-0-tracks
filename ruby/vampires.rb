@@ -29,7 +29,7 @@ num_employees = gets.to_i
 
 total_processed = 0
 while total_processed < num_employees
-
+	
 puts "What is the employee's name?"
 employee_name = gets.chomp
 puts "Did #{employee_name} provide their actual age? (yes/no)"
@@ -40,6 +40,7 @@ puts "Did #{employee_name} enroll in the company health insurance? (yes/no)"
 want_insur = gets.chomp
 puts "Did #{employee_name} answer all the questions correctly like a werewolf would? (yes/no)"
 correct_answers = gets.chomp
+
 
 if age_right == "yes" && (garlic_bread == "yes" || want_insur == "yes")
 	 result = not_vamp
@@ -57,8 +58,26 @@ if correct_answers == "yes" && (employee_name == "Drake Cula" || employee_name =
 	 result = def_vamp 
 end
 
+
+puts "Please list any allergies that #{employee_name} has, one at a time. When you have finished inputting all allergies or if #{employee_name} does not have any allergies, please enter 'done':"
+
+loop do
+allergy = gets.chomp
+if allergy != "sunshine" 
+	puts "Please input allergies or enter 'done':"
+elsif allergy = "sunshine"
+	result = prob_vamp
+	puts "Results for #{employee_name}: #{result}"
+	break
+end
+if allergy == "done"
+	puts "Allergy input complete."
+	break
+end
+end
 total_processed += 1
 puts "Results for #{employee_name}: #{result}"
 end
-end
+
 puts employee_processor
+
