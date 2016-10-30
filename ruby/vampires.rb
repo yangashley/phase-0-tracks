@@ -78,6 +78,7 @@ end
 total_processed += 1
 puts "Results for #{employee_name}: #{result}"
 end
+puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
+end
 
 puts employee_processor
-
