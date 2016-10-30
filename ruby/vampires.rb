@@ -24,6 +24,12 @@ certainly_vamp = "Almost certainly a vampire."
 def_vamp = "Definitely a vampire"
 result = "Results inconclusive."
 
+puts "How many employees will you be processing?"
+num_employees = gets.to_i
+
+total_processed = 0
+while total_processed < num_employees
+
 puts "What is the employee's name?"
 employee_name = gets.chomp
 puts "Did #{employee_name} provide their actual age? (yes/no)"
@@ -50,6 +56,9 @@ end
 if correct_answers == "yes" && (employee_name == "Drake Cula" || employee_name == "Tu Fang")
 	 result = def_vamp 
 end
+
+total_processed += 1
 puts "Results for #{employee_name}: #{result}"
+end
 end
 puts employee_processor
