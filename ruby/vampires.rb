@@ -10,7 +10,7 @@ birth_year = gets.chomp
 puts "Thanks. Our company cafeteria serves garlic bread. Should we order some for you? (yes/no)"
 garlic_bread = gets.chomp
 
-puts "Please list any allergies you may have or enter N/A if you don't have any."
+puts "Please list any allergies you may have or enter 'none' if you don't have any."
 allergies = gets.chomp
 
 puts "Sounds good. One final question: Would you like to enroll in the company’s health insurance? (yes/no)"
@@ -65,7 +65,7 @@ loop do
 allergy = gets.chomp
 if allergy != "sunshine" 
 	puts "Please input allergies or enter 'done':"
-elsif allergy = "sunshine"
+elsif allergy == "sunshine"
 	result = prob_vamp
 	puts "Results for #{employee_name}: #{result}"
 	break
