@@ -4,7 +4,6 @@
 # When there's more than one suspect who could have
 # committed the crime, add additional calls to prove it.
 
-"iNvEsTiGaTiOn".replace “InVeStIgAtIoN”
 "iNvEsTiGaTiOn".swapcase
 # => “InVeStIgAtIoN”
 
@@ -15,7 +14,6 @@
 # => "    enhance    "
 
 "Stop! You’re under arrest!".upcase
-"Stop! You’re under arrest!".replace "STOP! YOU’RE UNDER ARREST!"
 # => "STOP! YOU’RE UNDER ARREST!"
 
 "the usual".insert(-1, ' suspects')
