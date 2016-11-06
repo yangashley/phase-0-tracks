@@ -1,6 +1,18 @@
 =begin
 Alias Manager
 
+1.Ask user for first and last name
+2. Create a variable that holds the last name and first name
+3. Convert reversed name into an array of individual characters
+4. Define what vowels and consonants are
+5. Iterate through the array of characters to change the character to the next character 
+	-Vowels become the next vowel in aeiou
+	-Consonants become the next consonant
+	-Spaces should remain as spaces
+	-Letters need to keep their correct case
+6. Print the alias.
+7. Save the inputted name (key) and alias name (value) in a hash. 
+ 
 Method to convert inputted string into array
 
 Method to change a vowel to the next vowel
@@ -25,42 +37,64 @@ Store the Alias:
 =end
 
 
+def name_changer(name_to_change)
+vowel = "aeiou"
+cap_vowel = vowel.upcase
+consonant = "bcdfghjklmnpqrstvwxyz"
+cap_consonant = consonant.upcase
+ 
+updated_name = []
+name_to_change.map {|letter_in_name|
+	if vowel.index(letter_in_name)
+	next_vowel_index = vowel.index(letter_in_name) + 1
+	next_vowel_value = vowel[next_vowel_index]
+		if next_vowel_value
+		updated_name << next_vowel_value
+		else
+			updated_name << "a"
+		end
+	elsif cap_vowel.index(letter_in_name)
+	next_vowel_index = cap_vowel.index(letter_in_name) + 1
+	next_vowel_value = cap_vowel[next_vowel_index]
+		if 	next_vowel_value
+		updated_name << next_vowel_value
+		else
+			updated_name << "A"
+		end
+	elsif cap_consonant.index(letter_in_name)
+		next_cons_index = cap_consonant.index(letter_in_name) + 1
+		next_cons_value = cap_consonant[next_cons_index]
+		if next_cons_value
+			updated_name << next_cons_value
+		else
+			updated_name << "B"
+		end
+	elsif consonant.index(letter_in_name)
+		next_cons_index = consonant.index(letter_in_name) + 1
+		next_cons_value = consonant[next_cons_index]
+		if next_cons_value
+			updated_name << next_cons_value
+		else
+			updated_name << "b"
+		end
+	else 
+#Anything that is not vowel or consonant remains the same
+		updated_name << letter_in_name
+	end
+}
+final_alias = updated_name.join
+puts "Your alias is: #{final_alias}."
+return final_alias
+end
+
 
 user_name = [ ]
-first_name = "Ashley"
-last_name = "Yang"
-
-#can also split LastnameFirstname into Lastname Firstname at the capital letter 
-#only if it's a string using .split(/(?=[A-Z])/).join(' ')
+first_name = "Felicia"
+last_name = "Torres"
 
 reverse_name = "#{last_name} #{first_name}"
 #Convert reversed name into an array of characters
-reverse_name.scan(/./)
-#Puts array of characters into a new array
-user_name << reverse_name.scan(/./)
-p user_name
-
-#you cannot run .next on an array. so you made a string an arary
-#you'll have to make the array back into the string to call .next
-change_name = user_name.join
-
-#new variable holding reversed name as a string to call .next
-p change_name
+user_name = reverse_name.chars
 
 
-
-def change_letter(name)
-	index = 0
-	while index < name.length
-	if name[index] == "z"
-  	name[index] = "a"
-  	elsif name[index] == " "
-  	else
-  	name[index] = name[index].next!
-  end
-    index += 1
- end
- puts "#{name}"
-end
-
-puts change_letter(change_name)
+name_changer(user_name)
