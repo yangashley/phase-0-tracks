@@ -88,13 +88,20 @@ return final_alias
 end
 
 
-user_name = [ ]
-first_name = "Felicia"
-last_name = "Torres"
+loop do
+puts "Please enter your first name:"
+first_name = gets.chomp
+	if first_name == "quit"
+	break 
+	end
+puts "Please enter your last name:"
+last_name = gets.chomp
 
+user_name = [ ]
 reverse_name = "#{last_name} #{first_name}"
-#Convert reversed name into an array of characters
+#Convert reversed name into an array of characters, into a new array
 user_name = reverse_name.chars
 
-
 name_changer(user_name)
+
+end
