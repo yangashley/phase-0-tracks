@@ -1,47 +1,28 @@
 =begin
 Alias Manager
 
-1.Ask user for first and last name
-2. Create a variable that holds the last name and first name
-3. Convert reversed name into an array of individual characters
-4. Define what vowels and consonants are
-5. Iterate through the array of characters to change the character to the next character 
-	-Vowels become the next vowel in aeiou
-	-Consonants become the next consonant
+Ask user for first and last name
+Create a variable that holds the last name and first name
+Convert reversed name into an array of individual characters
+Create a method that iterates through each character of the array:
+	-If character is a lowercase vowels then it will become the next vowel in aeiou
+	-If character is a uppercase vowels then it will become the next vowel in aeiou
+	-If character is a lowercase consonant then it will become the next consonant
+	-If character is a uppercase consonant then it will become the next consonant
 	-Spaces should remain as spaces
-	-Letters need to keep their correct case
-6. Print the alias.
-7. Save the inputted name (key) and alias name (value) in a hash. 
- 
-Method to convert inputted string into array
-
-Method to change a vowel to the next vowel
--If, elsif, else condition for edge cases
-	-u should be a
-
-
-Method to change a consonant to the next consonant
--If, elsif, else condition for edge cases
--Call .downcase on the character that will take .next so that it will change capital letters
-	-z should be b
-
-Method to swap first and last name:
--Set inputted first name and last name to an array
--Switch the position of first name and last name in the array
-
-User Interface:
--Ask user for first name and last name
-
-Store the Alias:
--Feed the fake names into a new array
+Print the alias.
+Save the inputted name (key) and alias name (value) in a hash. 
+Print all inputted names and aliases 
 =end
-
 
 def name_changer(name_to_change)
 vowel = "aeiou"
 cap_vowel = vowel.upcase
 consonant = "bcdfghjklmnpqrstvwxyz"
 cap_consonant = consonant.upcase
+
+#array to hold aliases
+alias_database = [ ]
  
 updated_name = []
 name_to_change.map {|letter_in_name|
@@ -83,9 +64,12 @@ name_to_change.map {|letter_in_name|
 	end
 }
 final_alias = updated_name.join
+alias_database << final_alias
 puts "Your alias is: #{final_alias}."
+p alias_database
 return final_alias
 end
+
 
 
 loop do
