@@ -16,15 +16,20 @@
 # to search the hash to see if one of the keys is equal to item.
 # method to take your string and return true or fall 
 # Make the new item a new key with default value of 1 and add it to the master list
-# If there is a integer add it as the value of the new item
+# IF there is a integer add it as the value of the new item
 # First check if there is integer 
-# If not integer default would be 1
+# IF not integer default would be 1
 # output: finished list with added item and its quantity
 
 # Method to remove an item from the list
-# input:
-# steps:
-# output:
+# input: a string with the item to be deleted (bananas)
+# steps: 
+# Create a method that takes two parameters (hash and key)
+# Check to see if item to be deleted is already in the list 
+# Iterate through the hash to see if the item already exists 
+	# IF the item exists, delete it
+	# IF item doesn't exist, return a message that says "Item not found"
+# output: revised list with item deleted
 
 # Method to update the quantity of an item
 # input:
@@ -53,10 +58,22 @@ def new_item(list, item, quantity=1)
     list
 end
 
+def delete_item(list, delete_item)
+	list.each do |item, quantity|
+		if list[item] == list[delete_item]
+			list.delete(item)
+		end
+	end
+	list
+end
+
 inputted_list = "bananas tomatoes apples bread"
 
 list = add_items(inputted_list)
 new_item(list, "bananas", 5)
 p list
+delete_item(list, "bananas")
+p list
+
 
 
