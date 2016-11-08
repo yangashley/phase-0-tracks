@@ -23,7 +23,7 @@ class Puppy
   end
 
   def initialize
-  	
+  	puts "initializing new puppy instance..."
   end
 
 end
@@ -35,3 +35,20 @@ meatball.speak(4)
 meatball.roll_over
 meatball.dog_years(3)
 meatball.sit
+
+class Programmer
+	def initialize
+		puts "Initializing new programmer instance..."
+	end
+
+	def panic(minutes)
+		puts "Programmer panicked for #{minutes} minutes."
+	end
+
+	def grabs_snack(snack)
+		puts "Programmer grabbed #{snack} to eat."
+	end
+
+end
+
+
