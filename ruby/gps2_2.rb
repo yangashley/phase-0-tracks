@@ -39,9 +39,14 @@
 # output: The updated list with the new quantity.
 
 # Method to print a list and make it look pretty
-# input:
-# steps:
-# output:
+# input: Input the list
+# steps: 
+# Define a method called print_list
+# Print "You shopping list:" to the console and a line separating the message from the list to make it user friendly
+# Iterate through the hash to print the item followed by the quantity
+# Print another line to separate the information to make the list reader friendly
+# Call the method and pass in the list
+# output: The list with items and quanitities printed in individual lines for reader friendliness starting with the message "Your shopping list:"
 
 def add_items(inputted_list) 
     list = {}
@@ -76,7 +81,16 @@ def update_quantity(list, item, quantity)
     list
 end
 
-inputted_list = "bananas tomatoes apples bread"
+def print_list(shopping_list)
+	puts "Your shopping list:"
+	puts "------------------------"
+	shopping_list.each do |item, quantity|
+		puts "#{item}: #{quantity}"
+	end
+	puts "------------------------"
+end
+
+inputted_list = "lemonade"
 
 list = add_items(inputted_list)
 new_item(list, "bananas", 5)
@@ -85,5 +99,6 @@ delete_item(list, "bananas")
 update_quantity(list, "pizzas", 5)
 update_quantity(list, "tomatoes", 15)
 p list
+print_list(list)
 
 
