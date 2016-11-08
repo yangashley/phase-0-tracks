@@ -1,6 +1,6 @@
 # Method to create a list
-# input: string of items separated by spaces (example: "carrots apples cereal pizza")
- #Break apart string of items on the space
+# input: string of number then item separated by spaces (example: "5 carrots 3 apples")
+# Break apart string of items on the space
 # steps: 
 # Create an empty item array to hold items for list
 # Call each on the item array to turn each value into a key for the hash
