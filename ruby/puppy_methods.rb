@@ -50,5 +50,17 @@ class Programmer
 	end
 
 end
+programmer_db = []
 
+50.times do |variable|
+	programmer_instance = Programmer.new
+	programmer_db << programmer_instance
+end
+
+p programmer_db
+
+programmer_db.each do |programmer|
+	programmer.panic(3)
+	programmer.grabs_snack("popcorn")
+end
 
