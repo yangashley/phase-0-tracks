@@ -1,5 +1,5 @@
 # Method to create a list
-# input: string of number then item separated by spaces (example: "5 carrots 3 apples")
+# input: string of number then item separated by spaces (example: "carrots apples")
 # Break apart string of items on the space
 # steps: 
 # Create an empty item array to hold items for list
@@ -90,14 +90,17 @@ def print_list(shopping_list)
 	puts "------------------------"
 end
 
-inputted_list = "lemonade"
+inputted_list = "bananas apples cereal"
 
 list = add_items(inputted_list)
-new_item(list, "bananas", 5)
+new_item(list, "lemonade", 2)
+new_item(list, "tomatoes", 3)
+new_item(list, "onions", 1)
+new_item(list, "ice cream", 4)
 p list
-delete_item(list, "bananas")
-update_quantity(list, "pizzas", 5)
-update_quantity(list, "tomatoes", 15)
+delete_item(list, "lemonade")
+p list
+update_quantity(list, "ice cream", 1)
 p list
 print_list(list)
 
