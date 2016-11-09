@@ -27,8 +27,8 @@
 # Create a method that takes two parameters (hash and key)
 # Check to see if item to be deleted is already in the list 
 # Iterate through the hash to see if the item already exists 
-   # IF the item exists, delete it
-   # IF item doesn't exist, return a message that says "Item not found"
+ # IF the item exists, delete it
+ # IF item doesn't exist, return a message that says "Item not found"
 # output: revised list with item deleted
 
 # Method to update the quantity of an item
@@ -49,45 +49,42 @@
 # output: The list with items and quanitities printed in individual lines for reader friendliness starting with the message "Your shopping list:"
 
 def add_items(inputted_list) 
-    list = {}
- list_array = inputted_list.split(' ')
- 
- list_array.each do |item|
-     list[item] = 1
- end
- list
+  list = {}
+list_array = inputted_list.split(' ')
+
+list_array.each do |item|
+   list[item] = 1
+end
+list
 end
 
 def new_item(list, item, quantity=1)
-  if list[item] == nil
-      list[item] = quantity 
+if list[item] == nil
+    list[item] = quantity 
+end
+list
+end
+
+def delete_item(list, delete_item)
+#string calls a key, .delete will delete that key from list hash
+ list.delete(delete_item)
+ list
+end
+
+def update_quantity(list, item, quantity)
+  if list[item] 
+      list[item] = quantity
   end
   list
 end
 
-def delete_item(list, delete_item)
-   list.each do |item, quantity|
-       if list[item] == list[delete_item]
-           list.delete(item)
-       end
-   end
-   list
-end
-
-def update_quantity(list, item, quantity)
-    if list[item] != nil
-        list[item] = quantity
-    end
-    list
-end
-
 def print_list(shopping_list)
-	puts "Your shopping list:"
-	puts "------------------------"
-	shopping_list.each do |item, quantity|
-		puts "#{item}: #{quantity}"
-	end
-	puts "------------------------"
+   puts "Your shopping list:"
+   puts "------------------------"
+   shopping_list.each do |item, quantity|
+       puts "#{item}: #{quantity}"
+   end
+   puts "------------------------"
 end
 
 inputted_list = "bananas apples cereal"
