@@ -102,3 +102,23 @@ p list
 print_list(list)
 
 
+=begin
+REFLECTION
+
+-I learned how to write pseudocode better. I'm glad I had a chance to work with my pair who is much stronger at writing thorough pseudocode. We had to go back and change our pseduocode at times when we actually started writing code because we realized we needed steps that we hadn't thought of before. Also had to be diligent about not writing in language-specific words.
+
+-Arrays only allowed us to delete or add items one at a time.
+
+-What does a method return? The evaluated result of the last line that was run.
+
+-What kind of things can you pass into methods as arguments? You can pass in strings, return values from other methods, other methods themselves. 
+
+-How can you pass information between methods? You can pass the return value from one method to the next method as an argument.
+
+-Writing methods is clearer to me. It was useful to see how passing parameters and arguments through methods works when you use a method for each step of the program. Refactoring was also a good exercise because it helped me to see what variables were actually pointing to. 
+-Return values are still confusing to me. I feel like every challenge gets me closer to understanding return values, but I still don't have a full grasp on it.
+=end
+  
+
+
+
