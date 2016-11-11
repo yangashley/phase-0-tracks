@@ -35,16 +35,15 @@ User Interface:
 =end
 
 class GuessingGame
-	attr_reader :guess_count
-#	attr_reader :is_over
+	attr_accessor :guess_count, :is_over
 
 	def initialize(secret_word)
 		@secret_word = secret_word
 		@guess_count = 0
-#		@is_over = false
+		@is_over = false
 		puts "Guess the secret word..."
 	end
-
+	
 	def guess_feedback(guess)
 		feedback = [ ]
 		@secret_word 
@@ -62,13 +61,33 @@ class GuessingGame
 
 	def get_guess(player_guess)
 		guess = player_guess.split(//)
-		puts guess_feedback(guess)
+		guess_feedback(guess)
 	end
 
 end
 
-game = GuessingGame.new("dog")
-game.get_guess("dam")
+#User Interface
+
+secret = "dog"
+game = GuessingGame.new(secret)
+
+until game.guess_count == secret.length  
+puts "Enter a guess:"
+player_guess = gets.chomp
+game.get_guess(player_guess) 
+
+	if game.get_guess(player_guess) != secret 
+		puts  "The secret word is #{game.get_guess(player_guess)} ...keep guessing"
+	end
+	
+	if game.get_guess(player_guess) == secret 
+		game.is_over == true
+		puts "Nice job! You guessed the secret word #{game.get_guess(player_guess)}!"
+		break
+	end
+	
+	game.guess_count += 1
+end
 
 
 
