@@ -1,14 +1,18 @@
 require_relative 'game'
 
 describe GuessingGame do
-	let(:game) {GuessingGame.new("cat")}
+	let(:game) {GuessingGame.new("cog")}
 
-	it "checks guess against secret word and returns any correct letters and _ for any letters not guessed" do
-		expect(game.guess_feedback(["c", "o", "g"])).to eq ("c _ _")
+	it "checks guess against guess word and returns any correct letters and _ for any letters not guessed" do
+		expect(game.guess_feedback(["c", "o", "g"])).to eq (" _ o _ ")
 	end
 
-	it "turns the string guess provided into an array of characters and implements guessing" do
-	expect(game.get_guess("cog")).to eq ("c _ _")
+	it "sets the instance variable guess to equal the user guess given outside the class" do
+	expect(game.get_guess("moose")).to eq ("moose")
+	end
+
+	it "turns the string secret provided into an array of characters" do
+	expect(game.get_secret("cog")).to eq (["c", "o", "g"])
 	end
 
 end
