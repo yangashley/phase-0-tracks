@@ -35,36 +35,42 @@ User Interface:
 =end
 
 class GuessingGame
-	attr_accessor :guess_count, :is_over
+	attr_accessor :guess_count, :is_over, :guess, :secret_array
 
 	def initialize(secret_word)
 		@secret_word = secret_word
+		@secret_array = []
 		@guess_count = 0
 		@is_over = false
+		@guess = ""
 		puts "Guess the secret word..."
 	end
+
+	def get_secret(secret_word)
+		secret_array = secret_word.split(//)
+	end
 	
-	def guess_feedback(guess)
+	def get_guess(player_guess)
+		guess = player_guess
+	end
+	
+	def guess_feedback(secret, guess)
 		feedback = [ ]
-		@secret_word 
+		guess 
 		
-		guess.each {|char|
-			if @secret_word.index(char)
-				feedback << @secret_word[@secret_word.index(char)]	
+		secret.each {|char|
+			if guess.index(char)
+				feedback << guess[guess.index(char)]	
 			else 
-				!@secret_word.index(char)  
-				feedback << " _"
+				!guess.index(char)  
+				feedback << " _ "
 			end
 		}
 		feedback.join
 	end
-
-	def get_guess(player_guess)
-		guess = player_guess.split(//)
-		guess_feedback(guess)
-	end
-
 end
+
+
 
 #User Interface
 
