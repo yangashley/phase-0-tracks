@@ -74,26 +74,33 @@ end
 
 #User Interface
 
-secret = "dog"
+secret = "cog"
 game = GuessingGame.new(secret)
+guesses_db = []
 
 until game.guess_count == secret.length  
 puts "Enter a guess:"
 player_guess = gets.chomp
-game.get_guess(player_guess) 
 
+game.get_secret(secret)
+game.get_guess(player_guess)
+guesses_db << game.get_guess(player_guess)
+secret_word = game.guess_feedback(game.get_secret(secret), game.get_guess(player_guess))
+	if guesses_db[-1] == guesses_db[-2]
+		game.guess_count = game.guess_count - 1 
+	end
 	if game.get_guess(player_guess) != secret 
-		puts  "The secret word is #{game.get_guess(player_guess)} ...keep guessing"
+		if game.guess_count == secret.length - 1
+			puts "You're out of guesses. The secret word is #{secret}."
+			break
+		end
+		puts  "The secret word is #{secret_word} ...keep guessing"
 	end
 	
 	if game.get_guess(player_guess) == secret 
 		game.is_over == true
-		puts "Nice job! You guessed the secret word #{game.get_guess(player_guess)}!"
+		puts "Nice job! You guessed the secret word: #{secret}!"
 		break
 	end
-	
-	game.guess_count += 1
+	game.guess_count += 1 
 end
-
-
-
