@@ -44,3 +44,17 @@ var mazda = new Car(false, 2016, "silver");
 jeep.race();
 subaru.race();
 mazda.race();
+
+
+// creating an array filled with objects, using for loop to iterate through each object to make it race
+var cars = [
+    new Car(false, 2015, "black"),
+    new Car(true, 2000, "green"),
+    new Car(false, 2016, "silver")
+];
+
+for (i = 0; i < cars.length; i++){
+	cars[i].race();
+}
+
+
