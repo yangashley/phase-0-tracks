@@ -16,3 +16,66 @@ Pseudocode
 # IF player guesses word correctly before they are out of guesses, print "You won!" and a message to show the secret word
 # IF player hasn't guessed the word and runs out of guesses, game will end and print a message to show the secret word AND keep guessing will not print because they have no more turns
 =end
+
+class Game
+	attr_reader :word
+
+	def initialize(word)
+	@guess_count = 0
+	@word = word
+	@correct_guesses = []
+	@false_guesses = []
+	@secret = []
+	puts "Starting game..."
+	end
+	
+	def check_secret
+		@secret = @word.chars.map {|char|
+			if @correct_guesses.include?(char)
+				char
+			else
+				" _"
+			end
+		}
+	end
+
+	def print_secret
+		puts "The secret word is #{@secret.join}."
+	end
+	
+	def take_guess(letter)
+		# return stops the method, precondition in the beginning 	
+		return if @correct_guesses.include?(letter)||@false_guesses.include?(letter)
+		@guess_count += 1
+		if @word.index(letter) 
+			@correct_guesses << letter
+			true
+		else
+			@false_guesses << letter
+			false
+		end
+	end
+	
+	def is_finished
+		check_secret
+		if @guess_count == @word.length 
+			true
+		elsif @word == @secret.join 
+			puts "You won!"
+			true
+		else
+			false
+		end
+	end
+end
+
+guessing_game = Game.new("puppy")
+until guessing_game.is_finished
+	guessing_game.print_secret
+	puts "Enter a letter to guess the word:"
+    player_guess = gets.chomp
+	if !guessing_game.take_guess(player_guess) && !guessing_game.is_finished
+		puts "Keep guessing..."
+	end
+end
+puts "The game is finished. The secret word is #{guessing_game.word}."
