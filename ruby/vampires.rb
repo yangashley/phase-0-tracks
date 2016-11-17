@@ -1,84 +1,79 @@
-puts "Welcome to the New Employee Portal. What is your name?"
-user_name = gets.chomp
+def to_boolean(word)
+  if word == "true"
+    true
+  else
+    false
+  end
+end
 
-puts "Hi, #{user_name}. How old are you?"
-age = gets.chomp
+def valid_age(birth_year, age)
+  calculated_age = 2016 - birth_year
+  	if calculated_age == age
+  		true
+  	else
+  		false
+  	end
+end
 
-puts "Great! What year were you born?"
-birth_year = gets.chomp
+def has_vamp_name(name)
+  if name == "Drake Cula" || name == "Tu Fang"
+      true
+  end
+end
 
-puts "Thanks. Our company cafeteria serves garlic bread. Should we order some for you? (yes/no)"
-garlic_bread = gets.chomp
-
-puts "Please list any allergies you may have or enter 'none' if you don't have any."
-allergies = gets.chomp
-
-puts "Sounds good. One final question: Would you like to enroll in the company’s health insurance? (yes/no)"
-health_insur = gets.chomp
-puts "Wonderful! Thanks for the information."
-
-def employee_processor
 not_vamp = "Probably not a vampire."
 prob_vamp = "Probably a vampire."
 certainly_vamp = "Almost certainly a vampire." 
 def_vamp = "Definitely a vampire"
 result = "Results inconclusive."
 
-puts "How many employees will you be processing?"
-num_employees = gets.to_i
+puts "How many employees will be processed?"
+num_employee = gets.to_i
 
-total_processed = 0
-while total_processed < num_employees
-	
-puts "What is the employee's name?"
-employee_name = gets.chomp
-puts "Did #{employee_name} provide their actual age? (yes/no)"
-age_right = gets.chomp
-puts "Did #{employee_name} want garlic bread? (yes/no)"
-garlic_bread = gets.chomp
-puts "Did #{employee_name} enroll in the company health insurance? (yes/no)"
-want_insur = gets.chomp
-puts "Did #{employee_name} answer all the questions correctly like a werewolf would? (yes/no)"
-correct_answers = gets.chomp
+index = 0
+while index < num_employee
 
+puts "What is the your name?"
+name = gets.chomp
+puts "How old are you?"
+age = gets.to_i
+puts "What year were you born?"
+birth_year = gets.to_i
+puts "Our company cafeteria serves garlic bread. Should we order some for for you? (true/false)"
+wants_garlic = to_boolean(gets.chomp)
+puts "Would you like to enroll in the company’s health insurance? (true/false)"
+wants_insur = to_boolean(gets.chomp)
 
-if age_right == "yes" && (garlic_bread == "yes" || want_insur == "yes")
-	 result = not_vamp
+true_age = valid_age(birth_year, age)
+
+if true_age && (wants_garlic || wants_insur)
+  result = not_vamp
+end
+    
+if !true_age && (!wants_garlic || !wants_insur)
+  result = prob_vamp
+end
+    
+if !true_age && (!wants_garlic && !wants_insur)
+  result = certainly_vamp
 end
 
-if age_right == "no" && (garlic_bread == "no" || want_insur == "no")
-	 result = prob_vamp
-end
-
-if age_right== "no" && (garlic_bread == "no" && want_insur == "no")
-	 result = certainly_vamp 
-end
-
-if correct_answers == "yes" && (employee_name == "Drake Cula" || employee_name == "Tu Fang")
-	 result = def_vamp 
-end
-
-
-puts "Please list any allergies that #{employee_name} has, one at a time. When you have finished inputting all allergies or if #{employee_name} does not have any allergies, please enter 'done':"
-
+if has_vamp_name(name)
+  result = def_vamp
+end    
+  
 loop do
-allergy = gets.chomp
-if allergy != "sunshine" 
-	puts "Please input allergies or enter 'done':"
-elsif allergy == "sunshine"
-	result = prob_vamp
-	puts "Results for #{employee_name}: #{result}"
-	break
-end
-if allergy == "done"
-	puts "Allergy input complete."
-	break
-end
-end
-total_processed += 1
-puts "Results for #{employee_name}: #{result}"
-end
-puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
+puts "Do you have any allergies? Type 'done' to finish."
+allergies = gets.chomp
+  break if allergies == 'done'
+  if allergies == 'sunshine'
+    result = prob_vamp
+    break
+  end
 end
 
-puts employee_processor
+puts result
+index += 1
+end
+
+puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
