@@ -50,28 +50,35 @@ function match_pairs(object_1, object_2){
 	//Write a function that calls the two functions above and will returns an array of the random words created 
 //Output: Array with strings, depending on integer passed as argument(["ddds", "uhni", "wnod"])
 
-// function random_data(integer){
-
-// }
-
-function rand_num() {
-var word_length = Math.floor(Math.random() * 10) +1;
-return word_length;
+function random_data(integer){
+	var words_array = [];
+	var times = integer;
+	for (var i =0; i < times; i++){
+		var length = rand_num();
+		words_array[i] = rand_word(length);
+	}
+	return words_array
 }
 
-// function rand_word(rand_num) {
+function rand_num() {
+	var word_length = Math.floor(Math.random() * 10) +1;
+	return word_length;
+}
 
-// }
-
-
-
+function rand_word(length) {
+	var word = "";
+	var letters = "abcdefghijklmnopqrstuvwxyz";
+	for (var i = 0; i < length; i++)
+		word += letters.charAt(Math.floor(Math.random() * 10) +1);
+	return word
+}
 
 // driver code for longest_phrase function
 var array = new Array("long phrase", "even longer phrase", "longer phrase", "longest phrase");
 
 console.log(longest_phrase(array));
 
-// driver code for match_pairs function
+//driver code for match_pairs function
 var object_1 =  {name: 'Ashley', age: 25, pet: "fish"};
 
 var object_2 = {name: 'Colin', age: 25, pet: "cat"};
@@ -85,6 +92,16 @@ console.log(match_pairs(object_2, object_3));
 //should return true because they have the same pet
 console.log(match_pairs(object_1, object_3));
 
-// driver code for random_data function: 10 times: generates an array, prints the array, feeds the array to your "longest word" function, and prints the result.
-console.log(rand_num());
+// driver code for random_data function: 10 times generates an array, prints the array, feeds the array to your "longest word" function, and prints the result.
+console.log(random_data(1));
+console.log(random_data(5));
+
+var random_words_array = [];
+
+for (var i = 0; i < 10 ; i++) {
+	random_words_array.push(random_data(i));
+}
+
+console.log(longest_phrase(random_words_array));
+
 
