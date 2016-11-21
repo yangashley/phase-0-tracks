@@ -34,10 +34,36 @@ function match_pairs(object_1, object_2){
 		return true;
 	} else if (object_1.age == object_2.age){
 		return true;
+	} else if (object_1.pet == object_2.pet){
+		return true;
 	} else {
 		return false;
 	}
 }
+
+// A function that takes an integer for length, and builds and returns an array of strings of the given length.
+
+//Input: Integer (3)
+//Steps:
+	//Write a function that generates a random number to determine how long a random word will be
+	//Write a function that generates a random word with any letter in the alphabet that is the length of the random number generated
+	//Write a function that calls the two functions above and will returns an array of the random words created 
+//Output: Array with strings, depending on integer passed as argument(["ddds", "uhni", "wnod"])
+
+// function random_data(integer){
+
+// }
+
+function rand_num() {
+var word_length = Math.floor(Math.random() * 10) +1;
+return word_length;
+}
+
+// function rand_word(rand_num) {
+
+// }
+
+
 
 
 // driver code for longest_phrase function
@@ -46,14 +72,19 @@ var array = new Array("long phrase", "even longer phrase", "longer phrase", "lon
 console.log(longest_phrase(array));
 
 // driver code for match_pairs function
-var object_1 = {name: 'Ashley', age: 25};
+var object_1 =  {name: 'Ashley', age: 25, pet: "fish"};
 
-var object_2 = {name: 'Colin', age: 25};
+var object_2 = {name: 'Colin', age: 25, pet: "cat"};
 
-var object_3 = {name: 'Marisa', age: 24};
+var object_3 = {name: 'Marisa', age: 24, pet: "fish"};
 
+//should return true because they have same age
 console.log(match_pairs(object_1, object_2));
+//should return false because they have no matching pairs.
 console.log(match_pairs(object_2, object_3));
+//should return true because they have the same pet
+console.log(match_pairs(object_1, object_3));
 
-
+// driver code for random_data function: 10 times: generates an array, prints the array, feeds the array to your "longest word" function, and prints the result.
+console.log(rand_num());
 
