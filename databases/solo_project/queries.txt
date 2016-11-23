@@ -29,7 +29,6 @@ Output:
 4|The Dark Knight|152|true|4|4|Suspense
 5|American Horror Story|51|false|5|5|Horror
 
-
 4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
 Command: SELECT content.content_name, content.length_min, genre.genre_name FROM content JOIN genre ON content.content_id = genre.id;
 
@@ -49,4 +48,22 @@ Output:
 3|Blackfish|90|true|3
 5|American Horror Story|51|false|5
 
+Release 3: Different kinds of joins
+Note: tried to run right join command and received this error message -- Error: RIGHT and FULL OUTER JOINs are not currently supported
+
+Command: SELECT * FROM content LEFT JOIN GENRE on content.content_id = genre.id; 
+
+Output:
+1|Gilmore Girls|44.3|false|1|1|Dramedies
+2|Zootopia|108|true|2|2|Children
+3|Blackfish|90|true|3|3|Documentary
+5|American Horror Story|51|false|5|5|Horror
+
+Command: SELECT content_name, length_min FROM content INNER JOIN GENRE on content.content_id = genre.id;
+
+Output: 
+Gilmore Girls|44.3
+Zootopia|108
+Blackfish|90
+American Horror Story|51
 
