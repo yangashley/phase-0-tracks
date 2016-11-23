@@ -1,0 +1,69 @@
+1. Display the information in one table (either table is fine).
+Command: SELECT * FROM content; 
+
+Output:
+1|Gilmore Girls|44.3|false|1
+2|Zootopia|108|true|2
+3|Blackfish|90|true|3
+4|The Dark Knight|152|true|4
+5|American Horror Story|51|false|5
+
+2. Update an item that meets some condition (you can choose a condition that makes sense).
+Command: UPDATE genre SET genre_name="Suspense" WHERE id=4;
+
+Output:
+1|Dramedies
+2|Children
+3|Documentary
+4|Suspense (changed "Action to Suspense")
+5|Horror
+
+
+3. Display the information in both tables using one query.
+Command: SELECT * FROM content, genre WHERE content.content_id = genre.id;
+
+Output:
+1|Gilmore Girls|44.3|false|1|1|Dramedies
+2|Zootopia|108|true|2|2|Children
+3|Blackfish|90|true|3|3|Documentary
+4|The Dark Knight|152|true|4|4|Suspense
+5|American Horror Story|51|false|5|5|Horror
+
+4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+Command: SELECT content.content_name, content.length_min, genre.genre_name FROM content JOIN genre ON content.content_id = genre.id;
+
+Output: 
+Gilmore Girls|44.3|Dramedies
+Zootopia|108|Children
+Blackfish|90|Documentary
+The Dark Knight|152|Suspense
+American Horror Story|51|Horror
+
+5. Delete an item that meets some condition (you can choose a condition that makes sense).
+Command: DELETE FROM content WHERE content_name="The Dark Knight";
+
+Output:
+1|Gilmore Girls|44.3|false|1
+2|Zootopia|108|true|2
+3|Blackfish|90|true|3
+5|American Horror Story|51|false|5
+
+Release 3: Different kinds of joins
+Note: tried to run right join command and received this error message -- Error: RIGHT and FULL OUTER JOINs are not currently supported
+
+Command: SELECT * FROM content LEFT JOIN GENRE on content.content_id = genre.id; 
+
+Output:
+1|Gilmore Girls|44.3|false|1|1|Dramedies
+2|Zootopia|108|true|2|2|Children
+3|Blackfish|90|true|3|3|Documentary
+5|American Horror Story|51|false|5|5|Horror
+
+Command: SELECT content_name, length_min FROM content INNER JOIN GENRE on content.content_id = genre.id;
+
+Output: 
+Gilmore Girls|44.3
+Zootopia|108
+Blackfish|90
+American Horror Story|51
+
