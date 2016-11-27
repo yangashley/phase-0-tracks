@@ -77,3 +77,33 @@ def update_report(db)
 	end		
 	puts "Your changes have been saved."
 end
+
+#delete incident report
+def delete_incident(db)
+	puts "Please enter your reference id to delete your report:"
+	id = gets.to_i
+	db.execute("DELETE FROM incidents WHERE id = #{id}")
+	puts "Your incident report has been deleted."
+end
+
+#access an incident report by id 
+def access_report(db)
+	puts "Please enter your reference id to access your report:"
+	id = gets.to_i
+	puts db.execute("SELECT * FROM incidents WHERE id = #{id}")
+end
+
+#show all incidents reported
+def show_all_incidents(db)
+	puts "Previously reported incidents:"
+	puts db.execute("SELECT agency_name, description, location, incident_date, incident_time FROM incidents")
+
+end
+
+#show user reference id based on username
+def show_id(db)
+	puts "Enter your username to retrieve your reference number:"
+	user_name = gets.chomp
+	puts "Your reference id is:"
+	puts db.execute("SELECT id FROM incidents WHERE username = '#{user_name}'")
+end
