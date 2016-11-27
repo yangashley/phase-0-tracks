@@ -42,3 +42,38 @@ def report_incident(db)
 	puts "Your reference id is:"
 	puts db.execute("SELECT id FROM incidents WHERE username='#{user}'")
 end
+
+#update report
+def update_report(db)
+	puts "Please enter your reference id to update your report:"
+		id = gets.to_i
+	loop do
+	puts "Please indicate which part of the report you would like to update: agency, description, location, date, or time. Enter 'quit' to quit."
+	update = gets.chomp
+	case update
+		when "agency"
+			puts "Enter your changes for the agency involved:"
+			updated_agency = gets.chomp
+			db.execute("UPDATE incidents SET agency_name='#{updated_agency}' WHERE id= #{id}")
+		when "description"
+			puts "Update your description (your new description will override your previous one):"
+			updated_descr = gets.chomp
+			db.execute("UPDATE incidents SET description='#{updated_descr}' WHERE id= #{id}")
+		when "location"
+			puts "Update the location of the incident:"
+			updated_loc = gets.chomp
+			db.execute("UPDATE incidents SET user_location='#{updated_loc}' WHERE id= #{id}")
+		when "date"
+			puts "Update the date of the incident:"
+			updated_date = gets.chomp
+			db.execute("UPDATE incidents SET incident_date='#{updated_date}' WHERE id= #{id}")
+		when "time"
+			puts "Update the time of the incident:"
+			updated_time = gets.chomp
+			db.execute("UPDATE incidents SET incident_time='#{updated_time}' WHERE id= #{id}")
+		when "quit"
+			break
+	end
+	end		
+	puts "Your changes have been saved."
+end
