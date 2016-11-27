@@ -107,3 +107,35 @@ def show_id(db)
 	puts "Your reference id is:"
 	puts db.execute("SELECT id FROM incidents WHERE username = '#{user_name}'")
 end
+
+#Driver Code
+puts "Welcome to Police Watchdog."
+loop do
+	puts "Please indicate what you would like to do with a number.\n
+	1: Report an incident\n
+	2: View all incidents\n
+	3. View your reports\n
+	4: Update a previously reported incident\n
+	5: Delete a previously reported incident\n
+	6: Retrieve reference number\n
+	0: Exit"
+	action = gets.to_i
+	case action
+		when 1 
+			report_incident(reports_db)
+		when 2
+			show_all_incidents(reports_db)
+		when 3
+			access_report(reports_db)
+		when 4
+			update_report(reports_db)
+		when 5
+			delete_incident(reports_db)
+		when 6
+			show_id(reports_db)
+		when 0
+			break
+		else
+			puts "Please enter valid input"
+	end
+end
