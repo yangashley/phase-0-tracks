@@ -3,8 +3,6 @@
 #Users can delete their report
 #Users can add multiple reports (loop until through the process until user enters 'quit')
 
-#Schema: incidents table: id, agency_name, description, location, time
-
 require 'sqlite3'
 
 reports_db = SQLite3::Database.new("watchdog_reports.db")
