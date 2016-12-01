@@ -39,7 +39,7 @@ end
 
 # takes you to page to add new person
 get '/people/new' do
-	erb :search_results
+	erb :new_person
 end
 
 post '/people' do
