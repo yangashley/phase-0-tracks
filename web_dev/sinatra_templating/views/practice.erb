@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Practice Page</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+	<h1>Practicing Sinatra Templating</h1>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, nobis omnis fugit ducimus iure nam porro quos itaque commodi corporis, explicabo ea provident nostrum aliquid, cum unde, quis. Exercitationem, in!</p>
+	<p>Add a new person <a href="/people/new">here</a>.</p>
+	<!-- <p><%= @persons %></p> -->
+	<ul>
+	<% @persons.each do |person| %>
+		<li><%= person['name']%>, <%= person['age']%>, <%= person['gender']%> </li>
+	<% end %>
+	</ul>
+</body>
+</html>
