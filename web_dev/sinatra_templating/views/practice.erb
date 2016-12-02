@@ -11,7 +11,7 @@
 	<!-- <p><%= @persons %></p> -->
 	<ul>
 	<% @persons.each do |person| %>
-		<li><%= person['name']%>, <%= person['age']%>, <%= person['gender']%> </li>
+		<li><%= "#{person['name']}, #{person['age']}, #{person['gender']}"%> </li>
 	<% end %>
 	</ul>
 </body>
